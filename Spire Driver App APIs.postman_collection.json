@@ -1,0 +1,1492 @@
+{
+	"info": {
+		"_postman_id": "2a7fb640-3cf9-41c3-b721-a7b1fc5a8d5d",
+		"name": "Spire Driver App APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3337410"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile\": \"+201060779065\",\n    \"password\": \"123456789\"\n}"
+						},
+						"url": {
+							"raw": "{{local_base_url}}/login",
+							"host": [
+								"{{local_base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile\": \"+201005088541\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/forgot_password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"forgot_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile\": \"+201005088541\",\n    \"otp\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/check_otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"check_otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"12345678\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/reset_password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reset_password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "jobs_list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/jobs_list?page=1&merchant_id=199994&filter_type=my_tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"jobs_list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "merchant_id",
+									"value": "199994"
+								},
+								{
+									"key": "filter_type",
+									"value": "my_tasks",
+									"description": "all_tasks, my_tasks"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Job",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/jobs_view?page=1&merchant_id=199994&job_id=39",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"jobs_view"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "merchant_id",
+									"value": "199994"
+								},
+								{
+									"key": "job_id",
+									"value": "39"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/update_job_status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"update_job_status"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Job Status (Accept Job)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "accepted",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "Update Job Status (Reject Job)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "rejected",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "Update Job Status (first on route)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "first_on_route",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "Update Job Status (second on route)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "second_on_route",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "Update Job Status (first arrived)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "first_arrived",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "Update Job Status (first arrived) Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "second_arrived",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "Update Job Status (first job done)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "first_job_done",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										},
+										{
+											"key": "odometer",
+											"value": "123123",
+											"type": "text"
+										},
+										{
+											"key": "faults",
+											"value": "ALA001,Alarm System",
+											"type": "text"
+										},
+										{
+											"key": "outcomes",
+											"value": "FIX04,Roadside Repair: Temporary Repair",
+											"type": "text"
+										},
+										{
+											"key": "notes",
+											"value": "any text here",
+											"type": "text"
+										},
+										{
+											"key": "upload_images[]",
+											"type": "file",
+											"src": "/Users/hishammagdy/Downloads/1620391618_C1 FRONT REV.jpg"
+										},
+										{
+											"key": "upload_images[]",
+											"type": "file",
+											"src": "/Users/hishammagdy/Downloads/1620391618_C1 FRONT REV.jpg"
+										},
+										{
+											"key": "signature",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "Update Job Status (Second job done)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "status",
+											"value": "second_job_done",
+											"type": "text"
+										},
+										{
+											"key": "job_id",
+											"value": "39",
+											"type": "text"
+										},
+										{
+											"key": "merchant_id",
+											"value": "199994",
+											"type": "text"
+										},
+										{
+											"key": "odometer",
+											"value": "123123",
+											"type": "text"
+										},
+										{
+											"key": "faults",
+											"value": "ALA001,Alarm System",
+											"type": "text"
+										},
+										{
+											"key": "outcomes",
+											"value": "FIX04,Roadside Repair: Temporary Repair",
+											"type": "text"
+										},
+										{
+											"key": "notes",
+											"value": "any text here",
+											"type": "text"
+										},
+										{
+											"key": "upload_images[]",
+											"type": "file",
+											"src": "/Users/hishammagdy/Downloads/1620391618_C1 FRONT REV.jpg"
+										},
+										{
+											"key": "upload_images[]",
+											"type": "file",
+											"src": "/Users/hishammagdy/Downloads/1620391618_C1 FRONT REV.jpg"
+										},
+										{
+											"key": "signature",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/update_job_status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"update_job_status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Oct 2023 19:15:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.33"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vehicle Check",
+			"item": [
+				{
+					"name": "Check Requirement",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/check_requirement?merchant_id=199994",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"check_requirement"
+							],
+							"query": [
+								{
+									"key": "merchant_id",
+									"value": "199994"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/profile?merchant_id=199994",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "merchant_id",
+									"value": "199994"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "merchant_id",
+									"value": "199994",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/change_password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"change_password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Driver",
+			"item": [
+				{
+					"name": "Update Current Location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "merchant_id",
+									"value": "199994",
+									"type": "text"
+								},
+								{
+									"key": "current_longitude",
+									"value": "31.219067",
+									"type": "text"
+								},
+								{
+									"key": "current_latitude",
+									"value": "30.041319",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/update_current_location",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"update_current_location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Firebase",
+			"item": [
+				{
+					"name": "Create a new token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "merchant_id",
+									"value": "199994",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/firebase/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"firebase",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "merchant_id",
+									"value": "199994",
+									"type": "text"
+								},
+								{
+									"key": "old_token",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "new_token",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/firebase/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"firebase",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": " https://pqziebouzf.execute-api.eu-west-1.amazonaws.com/api/spire_driver_app",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiYzdiM2I0NWExMTQ1ZTZlMTdmNjI2ZGNmZGRkZjAwYWRiNDllOWZkYjYxMDk3NzcwZDFhN2YzZGQ4NGMyMDhhMTRjZjU1Y2MwNTM5OGVjNDYiLCJpYXQiOjE3MDA2OTA2MzUuODk2ODE1LCJuYmYiOjE3MDA2OTA2MzUuODk2ODE5LCJleHAiOjE3MzIzMTMwMzUuODgzOTE3LCJzdWIiOiIxMDU1Iiwic2NvcGVzIjpbXX0.V_z1tnUn2xydOZOvPHHY0Up8PrbnPgpuyGUtszer0kLy7OQKmbaTSKmjir6njErHhtrA08kWNBnHrb5yUEBssX-0RXsjzfIxdygkBeHApzWfceMQjof0cG0sMPmgRFdwRBvd911yRyUuZtkMUtxAEA8aQ8CAiMfwEWp1_Da6B8M3JwvQITZBlLV8gen3Eiwv9d4V4kEwmXlrHgKIlGHKNBEU8j79_YBk8K-VR6_NOAuQRREgo1_f-5GiIwDdExe41thKecpnUMrJ8zy7yRU6u1z6C_bXbMlp1ESdLuFHKPH1Ah9-CSRqCGDb1yaHBcqAnJ9YgSL08mFZth6ny1FFrWWQFu8Q1aHhWm-v0g-MmqEy1cFu5ADcp6M4ejJ0J9iH-MS1cvyX7kZpVBNm9qQvbLRGcNaWvO6FFTzgWx86EHAGf45314YW3AuYG7gbOaz0Y0YEW-mOA7DxQJObpKIkcRvyrp5kXQnBYTrmikZbr4YYiuN6-eVw85ed0DvsnvFCUwpVJddZ4_R2YVC4d78GSb05KxpD8tRGCVYkne1K1qfk2-XIqiCQyVKlKqPuUT5GtjFVFYoOxxSrV5wb9QNzx3QSali-cDCVbzHuYZj_eGeJ1YweuPbeYXXTMkCJP4_jBvfUKfEkhGAlLmI-dYrGYQOR2Va83kXBvwaoLMfVFKs",
+			"type": "string"
+		},
+		{
+			"key": "local_base_url",
+			"value": "http://127.0.0.1:8000/api/spire_driver_app",
+			"type": "string"
+		}
+	]
+}
